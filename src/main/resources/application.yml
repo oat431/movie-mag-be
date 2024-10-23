@@ -1,0 +1,59 @@
+spring:
+  profile:
+    active: dev
+  application:
+    name: "moviemag"
+  devtools:
+    livereload:
+      enabled: true
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_movie_mag?createDatabaseIfNotExist=true&autoReconnect=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+  servlet:
+    multipart:
+      max-file-size: 80MB
+  http:
+    multipart:
+      max-file-size: 80MB
+  output:
+    ansi:
+      enabled: always
+jwt:
+  secret: 4f6816271f565265f452616545f71800b432150210fc793e8fac5c57cc46e662a5e9a9df4edd75d72f14fc46c1f9c48cca566931c9422e057d75366cef3988c7
+  user:
+    expiration: 86400
+  admin:
+    expiration: 10800
+  refresh:
+    expiration: 604800
+
+server:
+  port: 8443
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    syntax-highlight:
+      theme: monokai
+      activated: true
+    try-it-out-enabled: true
+    tags-sorter: alpha
+    filter: true
+
+logging:
+  level:
+    org.spring.springframework.web: DEBUG
+    com.application: DEBUG
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS Z}){green} |  %clr(%-5level){faint} | %clr(%c){magenta} | %clr(%M){yellow} | %clr(%msg%n){cyan}"
